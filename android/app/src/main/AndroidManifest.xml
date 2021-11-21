@@ -1,8 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.hey_istanbullum">
+    package="com.prokaryoTech.hey_istanbullum">
    <application
         android:label="hey_istanbullum"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyBk92m0RTzwmRX5pWHIJ8DOvdv6C1zfOQQ"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
