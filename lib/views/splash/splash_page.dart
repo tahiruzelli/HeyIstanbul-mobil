@@ -43,9 +43,7 @@ class StartState extends State<SplashPage> with TickerProviderStateMixin {
 
   startTimer() async {
     mapController.determinePosition().then((value) {
-      if (mapController.isUserInIstanbul) {
-        Get.to(LoginView());
-      }
+      Get.to(LoginView());
     });
   }
 

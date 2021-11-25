@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:get_storage/get_storage.dart';
 import 'package:hey_istanbullum/services/rest_connector.dart';
 import 'package:hey_istanbullum/services/urls.dart';
@@ -26,5 +25,15 @@ class FetchData {
       data: jsonBody,
     ).getData();
     return response;
+  }
+
+  Future getIsparkLocations() async {
+    var response = await RestConnector(
+      urlIspark,
+      getJwtToken(),
+      requestType: "GET",
+      data: '',
+    ).getData();
+    return response['dataList'];
   }
 }

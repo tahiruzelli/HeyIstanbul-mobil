@@ -4,6 +4,7 @@ import 'package:hey_istanbullum/controllers/login_controller.dart';
 import 'package:hey_istanbullum/globals/widgets/my_textfield.dart';
 import 'package:hey_istanbullum/globals/widgets/rounded_button.dart';
 import 'package:hey_istanbullum/globals/widgets/top_bar.dart';
+import 'package:hey_istanbullum/views/locationList/location_list_page.dart';
 import 'package:hey_istanbullum/views/mainPage/main_page.dart';
 import 'package:hey_istanbullum/views/register/register_view.dart';
 
@@ -116,16 +117,16 @@ class _LoginView extends State<LoginView> {
         ),
         color: Colors.green,
         onPressed: () {
-          Get.offAll(MainPage());
+          Get.offAll(LocationListPage());
         },
         child: Obx(
           () => RoundedButton(
             text: _loginController.loginLoading.value
                 ? "Giriş Yapılıyor"
                 : "Giriş Yap",
-            press: () async {
-              _loginController.login();
-            },
+            // press: () async {
+            //   _loginController.login();
+            // },
           ),
         ),
       ),
