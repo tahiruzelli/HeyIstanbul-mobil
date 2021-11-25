@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hey_istanbullum/controllers/register_controller.dart';
 import 'package:hey_istanbullum/globals/widgets/my_textfield.dart';
 import 'package:hey_istanbullum/globals/widgets/top_bar.dart';
 import 'package:hey_istanbullum/views/login/login_view.dart';
@@ -10,28 +11,35 @@ class RegisterView extends StatefulWidget {
 }
 
 class MyHomePageState extends State<RegisterView> {
+  final RegisterController _registerController = Get.put(RegisterController());
   bool passwordVisible = true;
-  DateTime now = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      body: ListView(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           TopBar(),
-          const SizedBox(height: 30),
-          _nameForm(),
-          _lastNameForm(),
-          _emailForm(),
-          _passwordForm(),
-          const SizedBox(height: 30),
-          _registerButton(size),
-          const SizedBox(height: 20),
+          inputArea(size),
           _routeRegisterWidget(context),
         ],
       ),
+    );
+  }
+
+  Column inputArea(Size size) {
+    return Column(
+      children: [
+        //_nameForm(),
+        //_lastNameForm(),
+        _emailForm(),
+        _passwordForm(),
+        const SizedBox(height: 20),
+        _registerButton(size),
+      ],
     );
   }
 
@@ -68,7 +76,6 @@ class MyHomePageState extends State<RegisterView> {
   }
 
   _registerButton(Size size) {
-    bool isOkey = false;
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: size.width * 0.22),
       child: RaisedButton(
@@ -89,8 +96,9 @@ class MyHomePageState extends State<RegisterView> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
       child: MyTextFormField(
-        labelText: "Email",
-        hintText: 'Email',
+        controller: _registerController.nicknameController,
+        labelText: "Kullanıcı Adı",
+        hintText: 'Kullanıcı Adı',
         isEmail: true,
         validator: (String val) {
           if (val.isEmpty) {
@@ -143,6 +151,7 @@ class MyHomePageState extends State<RegisterView> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
       child: MyTextFormField(
+        controller: _registerController.passwordController,
         labelText: "Password",
         hintText: 'Password',
         suffixIcon: IconButton(

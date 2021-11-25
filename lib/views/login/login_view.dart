@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hey_istanbullum/controllers/login_controller.dart';
 import 'package:hey_istanbullum/globals/widgets/my_textfield.dart';
 import 'package:hey_istanbullum/globals/widgets/top_bar.dart';
+import 'package:hey_istanbullum/views/mainPage/main_page.dart';
 import 'package:hey_istanbullum/views/register/register_view.dart';
 
 class LoginView extends StatefulWidget {
@@ -11,24 +13,40 @@ class LoginView extends StatefulWidget {
 
 class _LoginView extends State<LoginView> {
   bool passwordVisible = true;
+  final LoginController _loginController = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      body: ListView(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           TopBar(),
-          SizedBox(height: size.height * 0.1),
-          _emailForm(),
-          _passwordForm(),
-          const SizedBox(height: 30),
-          _loginButton(size),
-          const SizedBox(height: 20),
-          _routeRegisterWidget(context),
-          _forgetPassword(context),
+          inputArea(size),
+          routes(size),
         ],
       ),
+    );
+  }
+
+  Column routes(Size size) {
+    return Column(
+      children: [
+        _routeRegisterWidget(context),
+        _forgetPassword(context),
+      ],
+    );
+  }
+
+  Column inputArea(Size size) {
+    return Column(
+      children: [
+        _nicknameForm(),
+        _passwordForm(),
+        const SizedBox(height: 30),
+        _loginButton(size),
+      ],
     );
   }
 
@@ -94,7 +112,9 @@ class _LoginView extends State<LoginView> {
           borderRadius: BorderRadius.circular(10.0),
         ),
         color: Colors.green,
-        onPressed: () {},
+        onPressed: () {
+          Get.offAll(MainPage());
+        },
         child: const Text(
           "Giriş Yap",
           style: TextStyle(color: Colors.white70),
@@ -103,12 +123,13 @@ class _LoginView extends State<LoginView> {
     );
   }
 
-  _emailForm() {
+  _nicknameForm() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
       child: MyTextFormField(
-        labelText: "Email",
-        hintText: 'Email',
+        controller: _loginController.nicknameController,
+        labelText: "Kullanıcı adı",
+        hintText: 'Kullanıcı adı',
         isEmail: true,
       ),
     );
@@ -118,6 +139,7 @@ class _LoginView extends State<LoginView> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
       child: MyTextFormField(
+        controller: _loginController.passwordController,
         labelText: "Şifre",
         hintText: 'Şifre',
         suffixIcon: IconButton(

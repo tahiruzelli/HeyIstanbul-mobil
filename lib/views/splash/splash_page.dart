@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:get/get.dart';
+import 'package:hey_istanbullum/controllers/main_controller.dart';
 import 'package:hey_istanbullum/services/fetch.dart';
 import 'package:hey_istanbullum/views/login/login_view.dart';
 import 'package:hey_istanbullum/views/mainPage/main_page.dart';
@@ -14,11 +15,8 @@ class StartState extends State<SplashPage> with TickerProviderStateMixin {
   Animation<double> _animation;
   final double _currentOpacity = 0.5;
   FetchData f = FetchData();
-
-  //double _width = 200;
-  //double _height = 200;
   double opacityLevel = 0;
-
+  MapController mapController = Get.find();
   @override
   Widget build(BuildContext context) {
     return initScreen(context);
@@ -65,7 +63,7 @@ class StartState extends State<SplashPage> with TickerProviderStateMixin {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    "assets/images/kizKulesi.jpeg",
+                    "assets/images/logo.png",
                   ),
                 ],
               ),
