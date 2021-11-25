@@ -45,29 +45,19 @@ class _GoogleMapsView extends State<GoogleMapsView> {
       //         ),
       //       );
       //     }),
-      body: Obx(
-        () => mapController.positionLoading.value
-            ? GoogleMap(
-                mapType: MapType.normal,
-                onMapCreated: (map) {
-                  controller = map;
-                },
-                initialCameraPosition: _kLake,
-              )
-            : GoogleMap(
-                //onCameraMove: (map) {
-                //  print(map.target);
-                // print('object');
-                //},
-                mapType: MapType.normal,
-                onMapCreated: (map) {
-                  controller = map;
-                },
-                initialCameraPosition: CameraPosition(
-                    target: LatLng(mapController.position.latitude,
-                        mapController.position.longitude),
-                    zoom: 10),
-              ),
+      body: GoogleMap(
+        //onCameraMove: (map) {
+        //  print(map.target);
+        // print('object');
+        //},
+        mapType: MapType.normal,
+        onMapCreated: (map) {
+          controller = map;
+        },
+        initialCameraPosition: CameraPosition(
+            target: LatLng(mapController.position.latitude,
+                mapController.position.longitude),
+            zoom: 10),
       ),
     );
   }
