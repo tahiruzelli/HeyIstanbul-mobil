@@ -6,8 +6,7 @@ import 'package:hey_istanbullum/views/mainPage/main_page.dart';
 
 class LocationListPage extends StatelessWidget {
   double cardWidth = Get.width - 50;
-  LocationListController locationListController =
-      Get.put(LocationListController());
+  LocationListController locationListController = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +17,6 @@ class LocationListPage extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 locationListController.getIsparkLocations();
-                Get.to(MainPage());
               },
               child: Card(
                 child: SizedBox(

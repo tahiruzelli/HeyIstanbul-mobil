@@ -1,3 +1,5 @@
+import 'package:hey_istanbullum/globals/utils/parse_json.dart';
+
 class IsparkModel {
   int guid;
   String istasyonNo;
@@ -27,8 +29,8 @@ class IsparkModel {
     aktif = json['aktif'];
     bos = json['bos'];
     dolu = json['dolu'];
-    lat = json['lat'];
-    lon = json['lon'];
+    lat = parseLatLongValue(json['lat']);
+    lon = parseLatLongValue(json['lon']);
     sonBaglanti = json['sonBaglanti'];
   }
 
