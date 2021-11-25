@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hey_istanbullum/controllers/login_controller.dart';
 import 'package:hey_istanbullum/globals/widgets/my_textfield.dart';
+import 'package:hey_istanbullum/globals/widgets/rounded_button.dart';
 import 'package:hey_istanbullum/globals/widgets/top_bar.dart';
 import 'package:hey_istanbullum/views/mainPage/main_page.dart';
 import 'package:hey_istanbullum/views/register/register_view.dart';
@@ -19,13 +20,15 @@ class _LoginView extends State<LoginView> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          TopBar(),
-          inputArea(size),
-          routes(size),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            TopBar(),
+            inputArea(size),
+            routes(size),
+          ],
+        ),
       ),
     );
   }
@@ -115,9 +118,15 @@ class _LoginView extends State<LoginView> {
         onPressed: () {
           Get.offAll(MainPage());
         },
-        child: const Text(
-          "Giriş Yap",
-          style: TextStyle(color: Colors.white70),
+        child: Obx(
+          () => RoundedButton(
+            text: _loginController.loginLoading.value
+                ? "Giriş Yapılıyor"
+                : "Giriş Yap",
+            press: () async {
+              _loginController.login();
+            },
+          ),
         ),
       ),
     );
