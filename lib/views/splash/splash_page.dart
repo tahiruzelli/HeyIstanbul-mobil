@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:get/get.dart';
 import 'package:hey_istanbullum/services/fetch.dart';
+import 'package:hey_istanbullum/views/login/login_view.dart';
 import 'package:hey_istanbullum/views/mainPage/main_page.dart';
 
 class SplashPage extends StatefulWidget {
@@ -46,7 +47,7 @@ class StartState extends State<SplashPage> with TickerProviderStateMixin {
   startTimer() async {
     var duration = const Duration(seconds: 5);
     return Timer(duration, () {
-      Get.to(MainPage());
+      Get.to(LoginView());
     });
   }
 
