@@ -16,7 +16,7 @@ class StartState extends State<SplashPage> with TickerProviderStateMixin {
   final double _currentOpacity = 0.5;
   FetchData f = FetchData();
   double opacityLevel = 0;
-  MapController mapController = Get.find();
+  MapController mapController = Get.put(MapController());
   @override
   Widget build(BuildContext context) {
     return initScreen(context);
@@ -25,7 +25,6 @@ class StartState extends State<SplashPage> with TickerProviderStateMixin {
   @override
   initState() {
     super.initState();
-
     startTimer();
 
     _controller = AnimationController(
@@ -43,8 +42,7 @@ class StartState extends State<SplashPage> with TickerProviderStateMixin {
   }
 
   startTimer() async {
-    var duration = const Duration(seconds: 5);
-    return Timer(duration, () {
+    mapController.determinePosition().then((value) {
       Get.to(LoginView());
     });
   }

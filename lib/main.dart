@@ -6,7 +6,6 @@ import 'package:hey_istanbullum/views/splash/splash_page.dart';
 
 void main() async {
   await GetStorage.init();
-  MapController _mapController = Get.put(MapController());
   runApp(MyApp());
 }
 

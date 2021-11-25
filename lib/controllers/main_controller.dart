@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 class MapController extends GetxController {
   var positionLoading = true.obs;
   Position position;
-  Future _determinePosition() async {
+  Future determinePosition() async {
     positionLoading.value = true;
     bool serviceEnabled;
     LocationPermission permission;
@@ -37,6 +37,5 @@ class MapController extends GetxController {
   void onInit() {
     // TODO: implement onInit
     super.onInit();
-    _determinePosition();
   }
 }
