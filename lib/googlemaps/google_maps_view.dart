@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:hey_istanbullum/controllers/main_controller.dart';
+import 'package:hey_istanbullum/controllers/map_controller.dart';
 
 class GoogleMapsView extends StatefulWidget {
   @override
@@ -14,8 +14,6 @@ class _GoogleMapsView extends State<GoogleMapsView> {
       CameraPosition(target: LatLng(41.015137, 28.979530), zoom: 10);
   GoogleMapController controller;
   MapController mapController = Get.find();
-  LatLng latLng = LatLng(10, 20);
-  ScreenCoordinate screenCoordinate;
   @override
   void initState() {
     // TODO: implement initState
@@ -25,26 +23,6 @@ class _GoogleMapsView extends State<GoogleMapsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // floatingActionButton: FloatingActionButton(
-      //     backgroundColor: Colors.transparent,
-      //     focusColor: Colors.transparent,
-      //     hoverColor: Colors.transparent,
-      //     splashColor: Colors.transparent,
-      //     foregroundColor: Colors.transparent,
-      //     onPressed: () {
-      //       controller.getLatLng(screenCoordinate);
-      //       controller.getScreenCoordinate(latLng);
-      //       print(latLng);
-      //       print(screenCoordinate);
-      //       controller.animateCamera(
-      //         CameraUpdate.newLatLng(
-      //           LatLng(
-      //             mapController.position.latitude,
-      //             mapController.position.longitude,
-      //           ),
-      //         ),
-      //       );
-      //     }),
       body: GoogleMap(
         //onCameraMove: (map) {
         //  print(map.target);
