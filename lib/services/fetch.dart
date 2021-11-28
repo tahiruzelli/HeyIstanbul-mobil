@@ -12,14 +12,29 @@ class FetchData {
     return GetStorage().read('userId');
   }
 
-  login(String email, String password) async {
+  login(String nickname, String password) async {
     Map body = {
-      "nickname": email,
+      "nickname": nickname,
       "password": password,
     };
     var jsonBody = const JsonEncoder().convert(body);
     var response = await RestConnector(
       urlLogin,
+      getJwtToken(),
+      requestType: "POST",
+      data: jsonBody,
+    ).getData();
+    return response;
+  }
+
+  register(String nickname, String password) async {
+    Map body = {
+      "nickname": nickname,
+      "password": password,
+    };
+    var jsonBody = const JsonEncoder().convert(body);
+    var response = await RestConnector(
+      urlRegister,
       getJwtToken(),
       requestType: "POST",
       data: jsonBody,
