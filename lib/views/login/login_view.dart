@@ -124,9 +124,9 @@ class _LoginView extends State<LoginView> {
             text: _loginController.loginLoading.value
                 ? "Giriş Yapılıyor"
                 : "Giriş Yap",
-            // press: () async {
-            //   _loginController.login();
-            // },
+            press: () async {
+              _loginController.login();
+            },
           ),
         ),
       ),
@@ -140,7 +140,6 @@ class _LoginView extends State<LoginView> {
         controller: _loginController.nicknameController,
         labelText: "Kullanıcı adı",
         hintText: 'Kullanıcı adı',
-        isEmail: true,
       ),
     );
   }
