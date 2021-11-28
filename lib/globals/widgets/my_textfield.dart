@@ -7,7 +7,6 @@ class MyTextFormField extends StatelessWidget {
   final Function onSaved;
   final IconButton suffixIcon;
   final bool isPassword;
-  final bool isEmail;
   final TextEditingController controller;
   final TextInputType keyboardType;
 
@@ -16,7 +15,6 @@ class MyTextFormField extends StatelessWidget {
     this.validator,
     this.onSaved,
     this.isPassword = false,
-    this.isEmail = false,
     this.labelText,
     this.suffixIcon,
     this.controller,
