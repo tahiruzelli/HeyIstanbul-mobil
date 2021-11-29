@@ -45,6 +45,16 @@ int parseIntValue(String fromModel, String fieldname, dynamic value) {
   return defaultVal;
 }
 
+double parseDoubleValue(dynamic value) {
+  double defaultVal = 0.0;
+  try {
+    defaultVal = value;
+    return defaultVal;
+  } catch (e) {
+    return defaultVal;
+  }
+}
+
 List<Map<String, dynamic>> parseListValue(
     String fromModel, String fieldname, dynamic value) {
   List<Map<String, dynamic>> defaultVal = List<Map<String, dynamic>>();

@@ -1,3 +1,5 @@
+import 'package:hey_istanbullum/globals/utils/parse_json.dart';
+
 class IBBWifiModel {
   int iId;
   String lOCATIONGROUP;
@@ -22,8 +24,8 @@ class IBBWifiModel {
     lOCATIONTYPE = json['LOCATION_TYPE'];
     lOCATIONCODE = json['LOCATION_CODE'];
     lOCATION = json['LOCATION'];
-    lONGITUDE = json['LONGITUDE'];
-    lATITUDE = json['LATITUDE'];
+    lONGITUDE = parseDoubleValue(json['LONGITUDE']);
+    lATITUDE = parseDoubleValue(json['LATITUDE']);
   }
 
   Map<String, dynamic> toJson() {

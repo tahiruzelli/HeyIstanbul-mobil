@@ -41,10 +41,10 @@ class LocationListController extends GetxController {
     Get.to(MainPage());
   }
 
-  Future getYolCalismalari() async {
+  Future getAkaryakitIstasyonlari() async {
     listLoading.value = true;
 
-    var response = await f.getYolCalismalari();
+    var response = await f.getAkaryakitIstasyonlari();
     akaryakitIstasyonlariList = (response as List)
         .map((e) => AkaryakitIstasyonlariModel.fromJson(e))
         .toList();
@@ -64,10 +64,10 @@ class LocationListController extends GetxController {
     Get.to(MainPage());
   }
 
-  Future getAkaryakitIstasyonlari() async {
+  Future getYolCalismalari() async {
     listLoading.value = true;
 
-    var response = await f.getAkaryakitIstasyonlari();
+    var response = await f.getYolCalismalari();
     yolCalismalariList =
         (response as List).map((e) => YolCalismalariModel.fromJson(e)).toList();
     listLoading.value = false;

@@ -1,3 +1,5 @@
+import 'package:hey_istanbullum/globals/utils/parse_json.dart';
+
 class YolCalismalariModel {
   String type;
   Properties properties;

@@ -39,7 +39,7 @@ class LocationListPage extends StatelessWidget {
                   child: const Padding(
                     padding: EdgeInsets.symmetric(vertical: 20.0),
                     child: Center(
-                      child: Text('Ispark'),
+                      child: Text('Yol çalışmaları'),
                     ),
                   ),
                 ),
