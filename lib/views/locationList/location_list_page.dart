@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hey_istanbullum/controllers/location_list_controller.dart';
 import 'package:hey_istanbullum/globals/widgets/app_bar.dart';
-import 'package:hey_istanbullum/views/mainPage/main_page.dart';
 
 class LocationListPage extends StatelessWidget {
   double cardWidth = Get.width - 50;
@@ -22,9 +21,73 @@ class LocationListPage extends StatelessWidget {
                 child: SizedBox(
                   width: cardWidth,
                   child: const Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20.0),
+                    padding: EdgeInsets.symmetric(vertical: 20.0),
                     child: Center(
                       child: Text('Ispark'),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                locationListController.getYolCalismalari();
+              },
+              child: Card(
+                child: SizedBox(
+                  width: cardWidth,
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 20.0),
+                    child: Center(
+                      child: Text('Ispark'),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                locationListController.getAkaryakitIstasyonlari();
+              },
+              child: Card(
+                child: SizedBox(
+                  width: cardWidth,
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 20.0),
+                    child: Center(
+                      child: Text('Akayakıt Istasyonları'),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                locationListController.getHalkEkmekBufeleri();
+              },
+              child: Card(
+                child: SizedBox(
+                  width: cardWidth,
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 20.0),
+                    child: Center(
+                      child: Text('Halk Ekmek Büfeleri'),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                locationListController.getIBBWifiLocations();
+              },
+              child: Card(
+                child: SizedBox(
+                  width: cardWidth,
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 20.0),
+                    child: Center(
+                      child: Text('IBB Wifi Konumları'),
                     ),
                   ),
                 ),

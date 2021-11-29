@@ -51,4 +51,44 @@ class FetchData {
     ).getData();
     return response['dataList'];
   }
+
+  Future getYolCalismalari() async {
+    var response = await RestConnector(
+      urlYolCalismalari,
+      getJwtToken(),
+      requestType: "GET",
+      data: '',
+    ).getData();
+    return response['features'];
+  }
+
+  Future getAkaryakitIstasyonlari() async {
+    var response = await RestConnector(
+      urlAkaryakitIstasyonlari,
+      getJwtToken(),
+      requestType: "GET",
+      data: '',
+    ).getData();
+    return response['value'];
+  }
+
+  Future getHalkEkmekBufeleri() async {
+    var response = await RestConnector(
+      urlHalkEkmekBufeleri,
+      getJwtToken(),
+      requestType: "GET",
+      data: '',
+    ).getData();
+    return response['value'];
+  }
+
+  Future getIBBWifiLocations() async {
+    var response = await RestConnector(
+      urlIBBWifiLocations,
+      getJwtToken(),
+      requestType: "GET",
+      data: '',
+    ).getData();
+    return response['value'];
+  }
 }

@@ -10,8 +10,6 @@ class GoogleMapsView extends StatefulWidget {
 }
 
 class _GoogleMapsView extends State<GoogleMapsView> {
-  static const CameraPosition _kLake =
-      CameraPosition(target: LatLng(41.015137, 28.979530), zoom: 10);
   LocationListController locationListController = Get.find();
   GoogleMapController controller;
   MapController mapController = Get.find();
@@ -33,7 +31,7 @@ class _GoogleMapsView extends State<GoogleMapsView> {
         onMapCreated: (map) {
           controller = map;
         },
-        markers: _createMarker(),
+        markers: locationListController.markers,
         initialCameraPosition: CameraPosition(
             target: LatLng(mapController.position.latitude,
                 mapController.position.longitude),
@@ -42,21 +40,20 @@ class _GoogleMapsView extends State<GoogleMapsView> {
     );
   }
 
-  Set<Marker> _createMarker() {
-    print('object');
-    return locationListController.isparkList
-        .map(
-          (e) => Marker(
-              markerId: MarkerId(
-                e.guid.toString(),
-              ),
-              position: LatLng(
-                double.parse(e.lat),
-                double.parse(e.lon),
-              ),
-              zIndex: 10,
-              infoWindow: InfoWindow(title: e.adi)),
-        )
-        .toSet();
-  }
+  // Set<Marker> _createMarker() {
+  //   return locationListController.isparkList
+  //       .map(
+  //         (e) => Marker(
+  //             markerId: MarkerId(
+  //               e.guid.toString(),
+  //             ),
+  //             position: LatLng(
+  //               double.parse(e.lat),
+  //               double.parse(e.lon),
+  //             ),
+  //             zIndex: 10,
+  //             infoWindow: InfoWindow(title: e.adi)),
+  //       )
+  //       .toSet();
+  // }
 }
