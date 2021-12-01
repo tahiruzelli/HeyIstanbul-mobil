@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:hey_istanbullum/globals/colors.dart';
 import 'package:hey_istanbullum/views/splash/splash_page.dart';
 
 import 'controllers/location_list_controller.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Hey Istanbul',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.purple,
       ),
       home: SplashPage(),
     );
