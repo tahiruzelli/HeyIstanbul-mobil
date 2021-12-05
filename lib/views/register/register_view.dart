@@ -21,13 +21,15 @@ class MyHomePageState extends State<RegisterView> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          TopBar(),
-          inputArea(size),
-          _routeRegisterWidget(context),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            TopBar(),
+            inputArea(size),
+            _routeRegisterWidget(context),
+          ],
+        ),
       ),
     );
   }
@@ -83,19 +85,19 @@ class MyHomePageState extends State<RegisterView> {
           borderRadius: BorderRadius.circular(10.0),
         ),
         color: Colors.green,
-         onPressed: () {
+        onPressed: () {
           Get.offAll(LocationListPage());
         },
         child: Obx(
-              () => RoundedButton(
-                text: _registerController.registerLoading.value
-                    ? "Kayıt Yapılıyor"
-                    : "Kayıt Ol",
-                press: () {
-                  _registerController.register();
-                },
-              ),
-            ),
+          () => RoundedButton(
+            text: _registerController.registerLoading.value
+                ? "Kayıt Yapılıyor"
+                : "Kayıt Ol",
+            press: () {
+              _registerController.register();
+            },
+          ),
+        ),
       ),
     );
   }
