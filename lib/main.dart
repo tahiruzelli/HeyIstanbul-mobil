@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:hey_istanbullum/globals/colors.dart';
+import 'package:hey_istanbullum/globals/constans/colors.dart';
 import 'package:hey_istanbullum/views/splash/splash_page.dart';
 
 import 'controllers/location_list_controller.dart';
 
 void main() async {
   await GetStorage.init();
-  LocationListController locationListController =
-      Get.put(LocationListController());
+  LocationController locationListController = Get.put(LocationController());
   runApp(MyApp());
 }
 

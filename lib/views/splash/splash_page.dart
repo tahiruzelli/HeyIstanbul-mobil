@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:hey_istanbullum/controllers/map_controller.dart';
 import 'package:hey_istanbullum/services/fetch.dart';
+import 'package:hey_istanbullum/views/location/location_list_page.dart';
 import 'package:hey_istanbullum/views/login/login_view.dart';
 import 'package:hey_istanbullum/views/mainPage/main_page.dart';
 
@@ -43,7 +45,9 @@ class StartState extends State<SplashPage> with TickerProviderStateMixin {
 
   startTimer() async {
     mapController.determinePosition().then((value) {
-      Get.to(LoginView());
+      GetStorage().read('jwtToken') == null
+          ? Get.to(LoginView())
+          : Get.to(LocationListPage());
     });
   }
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:hey_istanbullum/services/fetch.dart';
-import 'package:hey_istanbullum/views/mainPage/main_page.dart';
+import 'package:hey_istanbullum/views/location/location_list_page.dart';
 
 class LoginController extends GetxController {
   TextEditingController nicknameController = TextEditingController();
@@ -18,7 +18,7 @@ class LoginController extends GetxController {
     if (result["success"]) {
       GetStorage().write("jwtToken", result["data"]["jwtToken"]);
       GetStorage().write("id", result["data"]["id"]);
-      Get.to(() => MainPage());
+      Get.to(() => LocationListPage());
     } else {
       Get.snackbar("Hata", result["error"]);
     }

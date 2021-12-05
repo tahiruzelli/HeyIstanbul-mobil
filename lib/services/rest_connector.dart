@@ -22,6 +22,14 @@ class RestConnector {
     if (requestType == 'GET') {
       response = await http.get(
         Uri.parse(url),
+        headers: {
+          'content-type': 'application/json',
+          'Authorization': 'Bearer ' + jwtToken.toString(),
+        },
+      );
+    } else if (requestType == 'GETGLOBAL') {
+      response = await http.get(
+        Uri.parse(url),
       );
     } else if (requestType == 'POST') {
       response = await http.post(

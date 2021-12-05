@@ -4,8 +4,7 @@ import 'package:hey_istanbullum/controllers/login_controller.dart';
 import 'package:hey_istanbullum/globals/widgets/my_textfield.dart';
 import 'package:hey_istanbullum/globals/widgets/rounded_button.dart';
 import 'package:hey_istanbullum/globals/widgets/top_bar.dart';
-import 'package:hey_istanbullum/views/locationList/location_list_page.dart';
-import 'package:hey_istanbullum/views/mainPage/main_page.dart';
+import 'package:hey_istanbullum/views/location/location_list_page.dart';
 import 'package:hey_istanbullum/views/register/register_view.dart';
 
 class LoginView extends StatefulWidget {
@@ -123,9 +122,7 @@ class _LoginView extends State<LoginView> {
                 ? "Giriş Yapılıyor"
                 : "Giriş Yap",
             press: () async {
-              Get.offAll(LocationListPage());
-
-              //   _loginController.login();
+              _loginController.login();
             },
           ),
         ),

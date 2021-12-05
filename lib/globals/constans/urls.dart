@@ -1,8 +1,14 @@
 String urlDomain = "https://hey-istanbul.herokuapp.com";
 String urlLogin = urlDomain + "/api/v1/User/Authenticate";
+String urlGetComments = urlDomain + '/api/v1/Comment/GetCommentByLocationId';
+String urlCreateComment = urlDomain + '/api/v1/Comment/CreateComment';
+String urlCreateFavorite = urlDomain + '/api/v1/Favorite/CreateFavorite';
+String urlGetFavorites = urlDomain + '/api/v1/Favorite/GetFavorites';
+String urlDeleteFavorite = urlDomain + '/api/v1/Favorite/DeleteFavorite/';
 String urlIspark = 'https://api.ibb.gov.tr/ispark-bike/GetAllStationStatus';
 String urlRegister = urlDomain + "/api/v1/user/register";
 String urlYolCalismalari = 'https://api.ibb.gov.tr/teas/api/open_data';
+
 String urlAkaryakitIstasyonlari =
     'https://data.ibb.gov.tr/en/datastore/odata3.0/5625860c-d79a-446f-898e-2aa2b9099bc8?\$top=100&\$format=json';
 String urlHalkEkmekBufeleri =

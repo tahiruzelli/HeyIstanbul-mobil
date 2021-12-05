@@ -4,7 +4,7 @@ import 'package:hey_istanbullum/controllers/register_controller.dart';
 import 'package:hey_istanbullum/globals/widgets/my_textfield.dart';
 import 'package:hey_istanbullum/globals/widgets/rounded_button.dart';
 import 'package:hey_istanbullum/globals/widgets/top_bar.dart';
-import 'package:hey_istanbullum/views/locationList/location_list_page.dart';
+import 'package:hey_istanbullum/views/location/location_list_page.dart';
 import 'package:hey_istanbullum/views/login/login_view.dart';
 
 class RegisterView extends StatefulWidget {
@@ -85,9 +85,7 @@ class MyHomePageState extends State<RegisterView> {
           borderRadius: BorderRadius.circular(10.0),
         ),
         color: Colors.green,
-        onPressed: () {
-          Get.offAll(LocationListPage());
-        },
+        onPressed: () {},
         child: Obx(
           () => RoundedButton(
             text: _registerController.registerLoading.value
