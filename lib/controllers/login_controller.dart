@@ -18,6 +18,7 @@ class LoginController extends GetxController {
     if (result["success"]) {
       GetStorage().write("jwtToken", result["data"]["jwtToken"]);
       GetStorage().write("id", result["data"]["id"]);
+      GetStorage().write('nickname', nicknameController.text);
       Get.to(() => LocationListPage());
     } else {
       Get.snackbar("Hata", result["error"]);

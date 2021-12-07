@@ -10,7 +10,7 @@ class GoogleMapsView extends StatefulWidget {
 }
 
 class _GoogleMapsView extends State<GoogleMapsView> {
-  LocationListController locationListController = Get.find();
+  LocationController locationListController = Get.find();
   GoogleMapController controller;
   MapController mapController = Get.find();
   @override

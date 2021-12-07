@@ -1,6 +1,7 @@
 String urlDomain = "https://hey-istanbul.herokuapp.com";
 String urlLogin = urlDomain + "/api/v1/User/Authenticate";
 String urlGetComments = urlDomain + '/api/v1/Comment/GetCommentByLocationId';
+String urlGetMyComments = urlDomain + '/api/v1/Comment/GetComments';
 String urlCreateComment = urlDomain + '/api/v1/Comment/CreateComment';
 String urlCreateFavorite = urlDomain + '/api/v1/Favorite/CreateFavorite';
 String urlGetFavorites = urlDomain + '/api/v1/Favorite/GetFavorites';

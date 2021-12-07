@@ -118,9 +118,19 @@ class FetchData {
     return response['data'];
   }
 
-  Future getMyComments() async {
+  Future getComments() async {
     var response = await RestConnector(
       urlGetComments,
+      getJwtToken(),
+      requestType: "GET",
+      data: '',
+    ).getData();
+    return response['data'];
+  }
+
+  Future getMyComments() async {
+    var response = await RestConnector(
+      urlGetMyComments,
       getJwtToken(),
       requestType: "GET",
       data: '',

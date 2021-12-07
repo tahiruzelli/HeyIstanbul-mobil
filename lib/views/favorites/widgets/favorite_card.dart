@@ -1,31 +1,36 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hey_istanbullum/controllers/favorite_controller.dart';
+import 'package:hey_istanbullum/model/favorite_model.dart';
 import 'package:hey_istanbullum/views/location/location_detail_view.dart';
 
 class FavoriteCard extends StatelessWidget {
+  FavoriteModel favoriteCard;
+  FavoriteCard(this.favoriteCard);
+  FavoriteController favoriteController = Get.find();
   @override
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => LocationDetail()));
+        favoriteController.pushDetailPage(favoriteCard);
       },
       onLongPress: () {
         _onLongPressed(context);
       },
-      leading: const Icon(Icons.pin_drop, color: Colors.red),
-      title: const Text('Ispark'),
-      subtitle: const Text('Kadıköy rıhtım ispark'),
+      leading: favoriteController.getLeadingIcon(favoriteCard),
+      title: Text(favoriteCard.locationId.split('+').last),
+      //subtitle: const Text('Kadıköy rıhtım ispark'),
       trailing: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
+        children: [
           Text(
-            '40.12312',
-            style: TextStyle(fontSize: 12),
+            favoriteCard.locationId.split('+').first,
+            style: const TextStyle(fontSize: 12),
           ),
           Text(
-            '40.12312',
-            style: TextStyle(fontSize: 12),
+            favoriteCard.locationId.split('+')[1],
+            style: const TextStyle(fontSize: 12),
           ),
         ],
       ),

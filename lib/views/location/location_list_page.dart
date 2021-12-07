@@ -5,7 +5,7 @@ import 'package:hey_istanbullum/globals/widgets/app_bar.dart';
 
 class LocationListPage extends StatelessWidget {
   double cardWidth = Get.width - 50;
-  LocationListController locationListController = Get.find();
+  LocationController locationListController = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
