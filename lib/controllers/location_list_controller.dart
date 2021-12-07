@@ -28,9 +28,9 @@ class LocationController extends GetxController {
   TextEditingController commentTextFieldController = TextEditingController();
   String get _locationId {
     return choosenLocationDetail['x'] +
-        '+' +
+        '-' +
         choosenLocationDetail['y'] +
-        '+' +
+        '-' +
         choosenLocationDetail['stringType'];
   }
 

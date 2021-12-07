@@ -5,6 +5,7 @@ String urlGetMyComments = urlDomain + '/api/v1/Comment/GetComments';
 String urlCreateComment = urlDomain + '/api/v1/Comment/CreateComment';
 String urlCreateFavorite = urlDomain + '/api/v1/Favorite/CreateFavorite';
 String urlGetFavorites = urlDomain + '/api/v1/Favorite/GetFavorites';
+String urlIsAlreadyFavorite = urlDomain + '/api/v1/Favorite/IsFavorite/';
 String urlDeleteFavorite = urlDomain + '/api/v1/Favorite/DeleteFavorite/';
 String urlIspark = 'https://api.ibb.gov.tr/ispark-bike/GetAllStationStatus';
 String urlRegister = urlDomain + "/api/v1/user/register";

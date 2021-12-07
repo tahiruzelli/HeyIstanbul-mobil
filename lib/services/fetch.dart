@@ -171,4 +171,14 @@ class FetchData {
     ).getData();
     return response['data'];
   }
+
+  Future isFavorite(String locationId) async {
+    var response = await RestConnector(
+      urlIsAlreadyFavorite + locationId,
+      getJwtToken(),
+      requestType: "GET",
+      data: '',
+    ).getData();
+    return response['data'];
+  }
 }

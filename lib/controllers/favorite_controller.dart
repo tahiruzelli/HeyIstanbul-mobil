@@ -14,20 +14,30 @@ class FavoriteController extends GetxController {
   double iconWidth = 50;
   String get _locationId {
     return locationController.choosenLocationDetail['x'] +
-        '+' +
+        '-' +
         locationController.choosenLocationDetail['y'] +
-        '+' +
+        '-' +
         locationController.choosenLocationDetail['stringType'];
   }
 
-  Function createFavorite() {
-    f.createFavorite(_locationId).then((value) {
-      if (value['success']) {
-        Get.snackbar('Success', 'Favorilerinize eklendi');
-      } else {
-        Get.snackbar('Error', value['error']);
-      }
-    });
+  Future<bool> isAlreadyFavorite() async {
+    var response = await f.isFavorite(_locationId);
+    return response['isAlreadyFavorite'];
+  }
+
+  createFavorite() async {
+    bool isFavorite = await isAlreadyFavorite();
+    if (isFavorite) {
+      Get.snackbar('Uyarı', 'Bu konum zaten favorilerinizde');
+    } else {
+      f.createFavorite(_locationId).then((value) {
+        if (value['success']) {
+          Get.snackbar('Success', 'Favorilerinize eklendi');
+        } else {
+          Get.snackbar('Error', value['error']);
+        }
+      });
+    }
   }
 
   Future getMyFavorites() {
