@@ -24,7 +24,9 @@ class CommentModel {
     locationId = json['locationId'];
     title = json['title'];
     description = json['description'];
-    user = UserModel.fromJson(json['user']);
+    user = json['user'].toString() == 'null'
+        ? null
+        : UserModel.fromJson(json['user']);
     userId = json['userId'];
     id = json['id'];
     isActive = json['isActive'];

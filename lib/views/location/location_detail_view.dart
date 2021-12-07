@@ -78,7 +78,7 @@ class LocationDetail extends StatelessWidget {
         child: ListView.builder(
           itemCount: locationController.commentList.length,
           itemBuilder: (context, index) {
-            return CommentCard(locationController.commentList[index]);
+            return CommentCard(locationController.commentList[index], false);
           },
         ),
       ),

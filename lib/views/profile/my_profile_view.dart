@@ -29,7 +29,7 @@ class MyProfile extends StatelessWidget {
                         itemCount: profileController.myComments.length,
                         itemBuilder: (context, index) {
                           return CommentCard(
-                              profileController.myComments[index]);
+                              profileController.myComments[index], true);
                         },
                       ),
                     ),

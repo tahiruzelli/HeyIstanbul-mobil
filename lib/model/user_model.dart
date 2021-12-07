@@ -7,8 +7,8 @@ class UserModel {
   UserModel({this.id, this.nickname});
 
   UserModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    nickname = json['nickname'];
+    id = parseStringValue(json['id'].toString());
+    nickname = parseStringValue(json['nickname'].toString());
   }
 
   Map<String, dynamic> toJson() {

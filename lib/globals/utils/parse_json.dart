@@ -1,15 +1,9 @@
-String parseStringValue(String fromModel, String fieldname, dynamic value) {
+String parseStringValue(dynamic value) {
   String defaultVal = "";
   try {
     defaultVal = value.toString();
   } catch (ex) {
-    print("*** PARSE JSON HATA (" +
-        fromModel +
-        " class  - field:" +
-        fieldname.toString() +
-        "" +
-        ") exception:" +
-        ex.toString());
+    print(ex);
   }
 
   return defaultVal;

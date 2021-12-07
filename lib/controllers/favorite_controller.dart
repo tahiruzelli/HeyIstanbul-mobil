@@ -71,14 +71,14 @@ class FavoriteController extends GetxController {
 
   void pushDetailPage(FavoriteModel favorite) {
     locationController.choosenLocationDetail['title'] =
-        favorite.locationId.split('+').last;
+        favorite.locationId.split('-').last;
 
     locationController.choosenLocationDetail['stringType'] =
-        favorite.locationId.split('+').last;
+        favorite.locationId.split('-').last;
     locationController.choosenLocationDetail['x'] =
-        favorite.locationId.split('+').first;
+        favorite.locationId.split('-').first;
     locationController.choosenLocationDetail['y'] =
-        favorite.locationId.split('+')[1];
+        favorite.locationId.split('-')[1];
     locationController.getComments();
 
     Get.to(LocationDetail());

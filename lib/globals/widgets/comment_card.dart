@@ -3,7 +3,8 @@ import 'package:hey_istanbullum/model/comment_model.dart';
 
 class CommentCard extends StatelessWidget {
   CommentModel comment;
-  CommentCard(this.comment);
+  bool isProfile;
+  CommentCard(this.comment, this.isProfile);
   @override
   Widget build(BuildContext context) {
     String date = comment.created.split('T').first;
@@ -16,7 +17,7 @@ class CommentCard extends StatelessWidget {
     };
     return Card(
       child: ListTile(
-        title: Text(comment.user.nickname),
+        title: isProfile ? Container() : Text(comment.user.nickname),
         subtitle: Text(comment.description),
         trailing: Text(
             '${commentTime['day']}.${commentTime['mounth']}\n${commentTime['hour']}:${commentTime['minute']}'),

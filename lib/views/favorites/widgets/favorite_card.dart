@@ -19,17 +19,17 @@ class FavoriteCard extends StatelessWidget {
         _onLongPressed(context);
       },
       leading: favoriteController.getLeadingIcon(favoriteCard),
-      title: Text(favoriteCard.locationId.split('+').last),
+      title: Text(favoriteCard.locationId.split('-').last),
       //subtitle: const Text('Kadıköy rıhtım ispark'),
       trailing: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            favoriteCard.locationId.split('+').first,
+            favoriteCard.locationId.split('-').first,
             style: const TextStyle(fontSize: 12),
           ),
           Text(
-            favoriteCard.locationId.split('+')[1],
+            favoriteCard.locationId.split('-')[1],
             style: const TextStyle(fontSize: 12),
           ),
         ],
