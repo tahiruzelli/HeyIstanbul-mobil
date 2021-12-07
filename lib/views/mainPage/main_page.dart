@@ -8,11 +8,13 @@ class MainPage extends StatelessWidget {
   MainController mainController = Get.put(MainController());
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: myAppBar('Hey Istanbul'),
-      bottomNavigationBar: buildBottomNavigationBar(),
-      body: Obx(
-          () => mainController.mainPages[mainController.selectedIndex.value]),
+    return Obx(
+      () => Scaffold(
+        appBar: myAppBar('Hey Istanbul',
+            isExit: mainController.selectedIndex.value == 2 ? true : false),
+        bottomNavigationBar: buildBottomNavigationBar(),
+        body: mainController.mainPages[mainController.selectedIndex.value],
+      ),
     );
   }
 }
