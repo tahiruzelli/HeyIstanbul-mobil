@@ -46,8 +46,8 @@ class StartState extends State<SplashPage> with TickerProviderStateMixin {
   startTimer() async {
     mapController.determinePosition().then((value) {
       GetStorage().read('jwtToken') == null
-          ? Get.to(LoginView())
-          : Get.to(LocationListPage());
+          ? Get.offAll(LoginView())
+          : Get.offAll(LocationListPage());
     });
   }
 

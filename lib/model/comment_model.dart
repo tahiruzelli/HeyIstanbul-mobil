@@ -1,8 +1,10 @@
+import 'package:hey_istanbullum/model/user_model.dart';
+
 class CommentModel {
   String locationId;
   String title;
   String description;
-  Null user;
+  UserModel user;
   String userId;
   String id;
   bool isActive;
@@ -22,7 +24,7 @@ class CommentModel {
     locationId = json['locationId'];
     title = json['title'];
     description = json['description'];
-    user = json['user'];
+    user = UserModel.fromJson(json['user']);
     userId = json['userId'];
     id = json['id'];
     isActive = json['isActive'];
