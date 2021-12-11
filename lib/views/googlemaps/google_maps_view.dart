@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:hey_istanbullum/controllers/location_list_controller.dart';
+import 'package:hey_istanbullum/controllers/location_controller.dart';
 import 'package:hey_istanbullum/controllers/map_controller.dart';
 
 class GoogleMapsView extends StatefulWidget {
@@ -30,6 +30,9 @@ class _GoogleMapsView extends State<GoogleMapsView> {
         mapType: MapType.normal,
         onMapCreated: (map) {
           controller = map;
+          setState(() {
+            locationListController.setUserMarker(context);
+          });
         },
         markers: locationListController.markers,
         initialCameraPosition: CameraPosition(

@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:hey_istanbullum/controllers/location_list_controller.dart';
+import 'package:hey_istanbullum/controllers/location_controller.dart';
 import 'package:hey_istanbullum/model/favorite_model.dart';
 import 'package:hey_istanbullum/services/fetch.dart';
 import 'package:hey_istanbullum/views/location/location_detail_view.dart';

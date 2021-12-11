@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hey_istanbullum/controllers/location_list_controller.dart';
+import 'package:hey_istanbullum/controllers/location_controller.dart';
 import 'package:hey_istanbullum/globals/widgets/app_bar.dart';
 import 'package:hey_istanbullum/globals/widgets/comment_card.dart';
 

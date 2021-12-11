@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:hey_istanbullum/controllers/map_controller.dart';
 import 'package:hey_istanbullum/model/akaryakit_istasyonlari_model.dart';
 import 'package:hey_istanbullum/model/comment_model.dart';
 import 'package:hey_istanbullum/model/halk_ekmek_bufeleri_model.dart';
@@ -26,6 +27,28 @@ class LocationController extends GetxController {
   double iconHeight = 75;
   double iconWidth = 75;
   TextEditingController commentTextFieldController = TextEditingController();
+  MapController mapController = Get.find();
+  BitmapDescriptor personIcon;
+  void setUserMarker(context) async {
+    final ImageConfiguration imageConfiguration =
+        createLocalImageConfiguration(context);
+    personIcon = await BitmapDescriptor.fromAssetImage(
+        imageConfiguration, 'assets/icons/person.png');
+    markers.add(
+      Marker(
+        markerId: MarkerId(mapController.position.latitude.toString()),
+        position: LatLng(
+          mapController.position.latitude,
+          mapController.position.longitude,
+        ),
+        zIndex: 10,
+        infoWindow: const InfoWindow(title: 'Konumum'),
+        //icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet),
+        icon: personIcon,
+      ),
+    );
+  }
+
   String get _locationId {
     return choosenLocationDetail['x'] +
         '-' +
@@ -64,6 +87,7 @@ class LocationController extends GetxController {
               infoWindow: InfoWindow(title: e.adi)),
         )
         .toSet();
+    // setUserMarker();
     Get.to(MainPage());
   }
 
@@ -96,6 +120,7 @@ class LocationController extends GetxController {
               infoWindow: InfoWindow(title: e.fUELDISTRIBUTIONCOMPANYDESC)),
         )
         .toSet();
+    //  setUserMarker();
     Get.to(MainPage());
   }
 
@@ -128,6 +153,7 @@ class LocationController extends GetxController {
               infoWindow: InfoWindow(title: e.properties.isinAdi)),
         )
         .toSet();
+//    setUserMarker();
     Get.to(MainPage());
   }
 
@@ -160,6 +186,7 @@ class LocationController extends GetxController {
               infoWindow: InfoWindow(title: e.bufeAdi)),
         )
         .toSet();
+    //  setUserMarker();
     Get.to(MainPage());
   }
 
@@ -191,6 +218,7 @@ class LocationController extends GetxController {
               infoWindow: InfoWindow(title: e.lOCATIONCODE)),
         )
         .toSet();
+    //  setUserMarker();
     Get.to(MainPage());
   }
 
