@@ -10,18 +10,21 @@ class FavoriteController extends GetxController {
   LocationController locationController = Get.find();
   var myFavoritesLoading = false.obs;
   List<FavoriteModel> myFavorites = [];
+  RxBool didIFav = false.obs;
   double iconHeight = 50;
   double iconWidth = 50;
   String get _locationId {
-    return locationController.choosenLocationDetail['x'] +
+    return locationController.choosenLocationDetail['x'].toString() +
         '-' +
-        locationController.choosenLocationDetail['y'] +
+        locationController.choosenLocationDetail['y'].toString() +
         '-' +
         locationController.choosenLocationDetail['stringType'];
   }
 
   Future<bool> isAlreadyFavorite() async {
+    didIFav.value = false;
     var response = await f.isFavorite(_locationId);
+    didIFav.value = response['isAlreadyFavorite'];
     return response['isAlreadyFavorite'];
   }
 
@@ -32,9 +35,10 @@ class FavoriteController extends GetxController {
     } else {
       f.createFavorite(_locationId).then((value) {
         if (value['success']) {
-          Get.snackbar('Success', 'Favorilerinize eklendi');
+          Get.snackbar('Başarı', 'Favorilerinize eklendi');
+          didIFav.value = true;
         } else {
-          Get.snackbar('Error', value['error']);
+          Get.snackbar('Hata', value['error']);
         }
       });
     }

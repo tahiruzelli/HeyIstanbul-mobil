@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hey_istanbullum/controllers/login_controller.dart';
 import 'package:hey_istanbullum/globals/widgets/my_textfield.dart';
-import 'package:hey_istanbullum/globals/widgets/rounded_button.dart';
 import 'package:hey_istanbullum/globals/widgets/top_bar.dart';
-import 'package:hey_istanbullum/views/location/location_list_page.dart';
 import 'package:hey_istanbullum/views/register/register_view.dart';
 
 class LoginView extends StatefulWidget {
@@ -118,9 +116,13 @@ class _LoginView extends State<LoginView> {
         onPressed: () {
           _loginController.login();
         },
-        child: Text(
-          _loginController.loginLoading.value ? "Giriş Yapılıyor" : "Giriş Yap",
-          style: const TextStyle(color: Colors.white),
+        child: Obx(
+          () => Text(
+            _loginController.loginLoading.value
+                ? "Giriş Yapılıyor"
+                : "Giriş Yap",
+            style: const TextStyle(color: Colors.white),
+          ),
         ),
       ),
     );

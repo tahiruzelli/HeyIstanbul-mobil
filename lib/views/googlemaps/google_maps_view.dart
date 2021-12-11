@@ -41,6 +41,7 @@ class _GoogleMapsView extends State<GoogleMapsView> {
       ),
       body: GoogleMap(
         myLocationButtonEnabled: false,
+        zoomControlsEnabled: false,
         mapType: MapType.normal,
         onMapCreated: (map) {
           controller = map;

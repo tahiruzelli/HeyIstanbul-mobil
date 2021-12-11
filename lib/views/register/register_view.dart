@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hey_istanbullum/controllers/register_controller.dart';
 import 'package:hey_istanbullum/globals/widgets/my_textfield.dart';
-import 'package:hey_istanbullum/globals/widgets/rounded_button.dart';
 import 'package:hey_istanbullum/globals/widgets/top_bar.dart';
-import 'package:hey_istanbullum/views/location/location_list_page.dart';
 import 'package:hey_istanbullum/views/login/login_view.dart';
 
 class RegisterView extends StatefulWidget {
@@ -88,12 +86,14 @@ class MyHomePageState extends State<RegisterView> {
         onPressed: () {
           _registerController.register();
         },
-        child: Text(
-          _registerController.registerLoading.value
-              ? "Kayıt Yapılıyor"
-              : "Kayıt Ol",
-          style: const TextStyle(
-            color: Colors.white,
+        child: Obx(
+          () => Text(
+            _registerController.registerLoading.value
+                ? "Kayıt Yapılıyor"
+                : "Kayıt Ol",
+            style: const TextStyle(
+              color: Colors.white,
+            ),
           ),
         ),
       ),

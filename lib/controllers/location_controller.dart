@@ -12,6 +12,8 @@ import 'package:hey_istanbullum/services/fetch.dart';
 import 'package:hey_istanbullum/views/location/location_detail_view.dart';
 import 'package:hey_istanbullum/views/mainPage/main_page.dart';
 
+import 'main_controller.dart';
+
 class LocationController extends GetxController {
   FetchData f = FetchData();
   List<IsparkModel> isparkList;
@@ -28,6 +30,7 @@ class LocationController extends GetxController {
   double iconWidth = 75;
   TextEditingController commentTextFieldController = TextEditingController();
   MapController mapController = Get.find();
+  MainController mainController = Get.find();
   BitmapDescriptor personIcon;
   void setUserMarker(context) async {
     final ImageConfiguration imageConfiguration =
@@ -50,9 +53,9 @@ class LocationController extends GetxController {
   }
 
   String get _locationId {
-    return choosenLocationDetail['x'] +
+    return choosenLocationDetail['x'].toString() +
         '-' +
-        choosenLocationDetail['y'] +
+        choosenLocationDetail['y'].toString() +
         '-' +
         choosenLocationDetail['stringType'];
   }
@@ -87,7 +90,7 @@ class LocationController extends GetxController {
               infoWindow: InfoWindow(title: e.adi)),
         )
         .toSet();
-    // setUserMarker();
+    mainController.selectedIndex.value = 0;
     Get.to(MainPage());
   }
 
@@ -120,7 +123,7 @@ class LocationController extends GetxController {
               infoWindow: InfoWindow(title: e.fUELDISTRIBUTIONCOMPANYDESC)),
         )
         .toSet();
-    //  setUserMarker();
+    mainController.selectedIndex.value = 0;
     Get.to(MainPage());
   }
 
@@ -153,7 +156,7 @@ class LocationController extends GetxController {
               infoWindow: InfoWindow(title: e.properties.isinAdi)),
         )
         .toSet();
-//    setUserMarker();
+    mainController.selectedIndex.value = 0;
     Get.to(MainPage());
   }
 
@@ -186,7 +189,7 @@ class LocationController extends GetxController {
               infoWindow: InfoWindow(title: e.bufeAdi)),
         )
         .toSet();
-    //  setUserMarker();
+    mainController.selectedIndex.value = 0;
     Get.to(MainPage());
   }
 
@@ -218,7 +221,7 @@ class LocationController extends GetxController {
               infoWindow: InfoWindow(title: e.lOCATIONCODE)),
         )
         .toSet();
-    //  setUserMarker();
+    mainController.selectedIndex.value = 0;
     Get.to(MainPage());
   }
 

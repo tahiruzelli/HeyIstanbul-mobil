@@ -1,26 +1,30 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hey_istanbullum/controllers/favorite_controller.dart';
 import 'package:hey_istanbullum/controllers/location_controller.dart';
 import 'package:hey_istanbullum/globals/widgets/app_bar.dart';
 import 'package:hey_istanbullum/globals/widgets/comment_card.dart';
 
 class LocationDetail extends StatelessWidget {
   LocationController locationController = Get.find();
+  FavoriteController favoriteController = Get.find();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: myAppBar('Detay Sayfası', isFavorite: true),
-      body: Column(
-        children: [
-          title,
-          Obx(
-            () => locationController.commentsLoading.value
+    favoriteController.isAlreadyFavorite();
+    return Obx(
+      () => Scaffold(
+        appBar: myAppBar('Detay Sayfası',
+            isFavorite: true, didIFav: favoriteController.didIFav.value),
+        body: Column(
+          children: [
+            title,
+            locationController.commentsLoading.value
                 ? const CupertinoActivityIndicator()
                 : comments,
-          ),
-          textField,
-        ],
+            textField,
+          ],
+        ),
       ),
     );
   }
