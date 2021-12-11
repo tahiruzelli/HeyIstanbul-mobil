@@ -13,87 +13,38 @@ class LocationListPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            GestureDetector(
-              onTap: () {
-                locationListController.getIsparkLocations();
-              },
-              child: Card(
-                child: SizedBox(
-                  width: cardWidth,
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20.0),
-                    child: Center(
-                      child: Text('Ispark'),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                locationListController.getYolCalismalari();
-              },
-              child: Card(
-                child: SizedBox(
-                  width: cardWidth,
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20.0),
-                    child: Center(
-                      child: Text('Yol çalışmaları'),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                locationListController.getAkaryakitIstasyonlari();
-              },
-              child: Card(
-                child: SizedBox(
-                  width: cardWidth,
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20.0),
-                    child: Center(
-                      child: Text('Akayakıt Istasyonları'),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                locationListController.getHalkEkmekBufeleri();
-              },
-              child: Card(
-                child: SizedBox(
-                  width: cardWidth,
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20.0),
-                    child: Center(
-                      child: Text('Halk Ekmek Büfeleri'),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                locationListController.getIBBWifiLocations();
-              },
-              child: Card(
-                child: SizedBox(
-                  width: cardWidth,
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20.0),
-                    child: Center(
-                      child: Text('IBB Wifi Konumları'),
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            locationCard('Ispark', locationListController.getIsparkLocations),
+            locationCard(
+                'Yol çalışmaları', locationListController.getYolCalismalari),
+            locationCard('Akayakıt Istasyonları',
+                locationListController.getAkaryakitIstasyonlari),
+            locationCard('Halk Ekmek Büfeleri',
+                locationListController.getHalkEkmekBufeleri),
+            locationCard('IBB Wifi Konumları',
+                locationListController.getIBBWifiLocations),
           ],
+        ),
+      ),
+    );
+  }
+
+  Align locationCard(String title, function) {
+    return Align(
+      alignment: Alignment.center,
+      child: GestureDetector(
+        onTap: () {
+          function();
+        },
+        child: Card(
+          child: SizedBox(
+            width: cardWidth,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20.0),
+              child: Center(
+                child: Text(title),
+              ),
+            ),
+          ),
         ),
       ),
     );
