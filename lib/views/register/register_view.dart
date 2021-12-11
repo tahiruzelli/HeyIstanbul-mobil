@@ -85,15 +85,15 @@ class MyHomePageState extends State<RegisterView> {
           borderRadius: BorderRadius.circular(10.0),
         ),
         color: Colors.green,
-        onPressed: () {},
-        child: Obx(
-          () => RoundedButton(
-            text: _registerController.registerLoading.value
-                ? "Kayıt Yapılıyor"
-                : "Kayıt Ol",
-            press: () {
-              _registerController.register();
-            },
+        onPressed: () {
+          _registerController.register();
+        },
+        child: Text(
+          _registerController.registerLoading.value
+              ? "Kayıt Yapılıyor"
+              : "Kayıt Ol",
+          style: const TextStyle(
+            color: Colors.white,
           ),
         ),
       ),

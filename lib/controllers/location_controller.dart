@@ -228,7 +228,7 @@ class LocationController extends GetxController {
             commentTextFieldController.text)
         .then((value) {
       if (value['success']) {
-        commentList.add(value['data']);
+        getComments();
       } else {
         Get.snackbar('Error', value['error']);
       }

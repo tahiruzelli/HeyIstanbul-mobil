@@ -115,16 +115,12 @@ class _LoginView extends State<LoginView> {
           borderRadius: BorderRadius.circular(10.0),
         ),
         color: Colors.green,
-        onPressed: () {},
-        child: Obx(
-          () => RoundedButton(
-            text: _loginController.loginLoading.value
-                ? "Giriş Yapılıyor"
-                : "Giriş Yap",
-            press: () async {
-              _loginController.login();
-            },
-          ),
+        onPressed: () {
+          _loginController.login();
+        },
+        child: Text(
+          _loginController.loginLoading.value ? "Giriş Yapılıyor" : "Giriş Yap",
+          style: const TextStyle(color: Colors.white),
         ),
       ),
     );

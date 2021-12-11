@@ -12,7 +12,7 @@ class CommentCard extends StatelessWidget {
     Map commentTime = {
       'day': date.split('-')[1],
       'mounth': date.split('-')[2],
-      'hour': time.split(':')[0],
+      'hour': int.parse(time.split(':')[0]) + 3,
       'minute': time.split(':')[1]
     };
     return Card(

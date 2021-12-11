@@ -85,16 +85,14 @@ class LocationDetail extends StatelessWidget {
     );
   }
 
-  Row get title {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Text(
-          locationController.choosenLocationDetail['title'],
-          style: titleStyle,
-        ),
-        locationController.getLocationIcon
-      ],
+  ListTile get title {
+    return ListTile(
+      title: Text(
+        locationController.choosenLocationDetail['title'],
+        style: titleStyle,
+        textAlign: TextAlign.center,
+      ),
+      trailing: locationController.getLocationIcon,
     );
   }
 
