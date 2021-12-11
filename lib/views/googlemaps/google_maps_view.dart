@@ -22,11 +22,25 @@ class _GoogleMapsView extends State<GoogleMapsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          controller.animateCamera(
+            CameraUpdate.newLatLngZoom(
+              LatLng(mapController.position.latitude,
+                  mapController.position.longitude),
+              15,
+            ),
+          );
+        },
+        backgroundColor: Colors.white,
+        child: const Icon(
+          Icons.my_location,
+          color: Colors.black54,
+          size: 30,
+        ),
+      ),
       body: GoogleMap(
-        //onCameraMove: (map) {
-        //  print(map.target);
-        // print('object');
-        //},
+        myLocationButtonEnabled: false,
         mapType: MapType.normal,
         onMapCreated: (map) {
           controller = map;
@@ -36,27 +50,11 @@ class _GoogleMapsView extends State<GoogleMapsView> {
         },
         markers: locationListController.markers,
         initialCameraPosition: CameraPosition(
-            target: LatLng(mapController.position.latitude,
-                mapController.position.longitude),
-            zoom: 10),
+          target: LatLng(mapController.position.latitude,
+              mapController.position.longitude),
+          zoom: 10,
+        ),
       ),
     );
   }
-
-  // Set<Marker> _createMarker() {
-  //   return locationListController.isparkList
-  //       .map(
-  //         (e) => Marker(
-  //             markerId: MarkerId(
-  //               e.guid.toString(),
-  //             ),
-  //             position: LatLng(
-  //               double.parse(e.lat),
-  //               double.parse(e.lon),
-  //             ),
-  //             zIndex: 10,
-  //             infoWindow: InfoWindow(title: e.adi)),
-  //       )
-  //       .toSet();
-  // }
 }
