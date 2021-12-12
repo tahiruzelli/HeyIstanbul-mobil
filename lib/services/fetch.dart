@@ -138,9 +138,10 @@ class FetchData {
     return response['data'];
   }
 
-  Future createFavorite(String locationId) async {
+  Future createFavorite(String locationId, String title) async {
     Map body = {
       "locationId": locationId,
+      'title': title,
     };
     var jsonBody = const JsonEncoder().convert(body);
     var response = await RestConnector(

@@ -36,11 +36,11 @@ class MapController extends GetxController {
   }
 
   void userInIstanbul() {
-    if (position.longitude > 41.619888 ||
-        position.longitude < 40.796666 ||
-        position.latitude > 27.941666 ||
-        position.latitude < 29.973888) {
-      Get.snackbar('Error', 'Istanbul sınırları dışındasınız!');
+    if (position.latitude > 41.619888 ||
+        position.latitude < 40.796666 ||
+        position.longitude > 27.941666 ||
+        position.longitude < 29.973888) {
+      Get.snackbar('Uyari', 'Istanbul sınırları dışındasınız!');
       isUserInIstanbul = false;
     } else {
       isUserInIstanbul = true;

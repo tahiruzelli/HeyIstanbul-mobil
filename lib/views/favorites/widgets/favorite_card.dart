@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hey_istanbullum/controllers/favorite_controller.dart';
 import 'package:hey_istanbullum/model/favorite_model.dart';
 import 'package:hey_istanbullum/views/location/location_detail_view.dart';
@@ -13,14 +14,13 @@ class FavoriteCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () {
-        favoriteController.pushDetailPage(favoriteCard);
+        favoriteController.mapDialog(favoriteCard);
       },
       onLongPress: () {
         _onLongPressed(context);
       },
       leading: favoriteController.getLeadingIcon(favoriteCard),
-      title: Text(favoriteCard.locationId.split('-').last),
-      //subtitle: const Text('Kadıköy rıhtım ispark'),
+      title: Text(favoriteCard.title),
       trailing: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

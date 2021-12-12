@@ -30,7 +30,7 @@ class LocationController extends GetxController {
   double iconWidth = 75;
   TextEditingController commentTextFieldController = TextEditingController();
   MapController mapController = Get.find();
-  MainController mainController = Get.find();
+
   BitmapDescriptor personIcon;
   void setUserMarker(context) async {
     final ImageConfiguration imageConfiguration =
@@ -76,6 +76,7 @@ class LocationController extends GetxController {
                 choosenLocationDetail['stringType'] = 'ispark';
                 choosenLocationDetail['x'] = e.lat;
                 choosenLocationDetail['y'] = e.lon;
+                choosenLocationDetail['title'] = e.adi;
                 getComments();
                 Get.to(LocationDetail());
               },
@@ -90,7 +91,7 @@ class LocationController extends GetxController {
               infoWindow: InfoWindow(title: e.adi)),
         )
         .toSet();
-    mainController.selectedIndex.value = 0;
+//    mainController.selectedIndex.value = 0;
     Get.to(MainPage());
   }
 
@@ -111,6 +112,7 @@ class LocationController extends GetxController {
                 choosenLocationDetail['stringType'] = 'akaryakit';
                 choosenLocationDetail['x'] = e.lATITUDE;
                 choosenLocationDetail['y'] = e.lONGTITUDE;
+                choosenLocationDetail['title'] = e.fUELDISTRIBUTIONCOMPANYDESC;
                 getComments();
                 Get.to(LocationDetail());
               },
@@ -123,7 +125,7 @@ class LocationController extends GetxController {
               infoWindow: InfoWindow(title: e.fUELDISTRIBUTIONCOMPANYDESC)),
         )
         .toSet();
-    mainController.selectedIndex.value = 0;
+    //  mainController.selectedIndex.value = 0;
     Get.to(MainPage());
   }
 
@@ -143,6 +145,7 @@ class LocationController extends GetxController {
                 choosenLocationDetail['stringType'] = 'yolCalismasi';
                 choosenLocationDetail['x'] = e.properties.lat;
                 choosenLocationDetail['y'] = e.properties.lon;
+                choosenLocationDetail['title'] = e.properties.isinAdi;
                 getComments();
                 Get.to(LocationDetail());
               },
@@ -156,7 +159,7 @@ class LocationController extends GetxController {
               infoWindow: InfoWindow(title: e.properties.isinAdi)),
         )
         .toSet();
-    mainController.selectedIndex.value = 0;
+    //  mainController.selectedIndex.value = 0;
     Get.to(MainPage());
   }
 
@@ -177,6 +180,7 @@ class LocationController extends GetxController {
                 choosenLocationDetail['stringType'] = 'halkEkmek';
                 choosenLocationDetail['x'] = e.enlem;
                 choosenLocationDetail['y'] = e.boylam;
+                choosenLocationDetail['title'] = e.bufeAdi;
                 getComments();
                 Get.to(LocationDetail());
               },
@@ -189,7 +193,7 @@ class LocationController extends GetxController {
               infoWindow: InfoWindow(title: e.bufeAdi)),
         )
         .toSet();
-    mainController.selectedIndex.value = 0;
+    //  mainController.selectedIndex.value = 0;
     Get.to(MainPage());
   }
 
@@ -209,6 +213,7 @@ class LocationController extends GetxController {
                 choosenLocationDetail['stringType'] = 'wifi';
                 choosenLocationDetail['x'] = e.lATITUDE;
                 choosenLocationDetail['y'] = e.lONGITUDE;
+                choosenLocationDetail['title'] = e.lOCATIONCODE;
                 getComments();
                 Get.to(LocationDetail());
               },
@@ -221,7 +226,7 @@ class LocationController extends GetxController {
               infoWindow: InfoWindow(title: e.lOCATIONCODE)),
         )
         .toSet();
-    mainController.selectedIndex.value = 0;
+    //   mainController.selectedIndex.value = 0;
     Get.to(MainPage());
   }
 

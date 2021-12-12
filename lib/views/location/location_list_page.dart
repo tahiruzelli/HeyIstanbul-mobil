@@ -11,21 +11,6 @@ class LocationListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: myAppBar('Nereye gitmek istersin'),
-        // body: SingleChildScrollView(
-        //   child: Column(
-        //     children: [
-        //       locationCard('Ispark', locationListController.getIsparkLocations),
-        //       locationCard(
-        //           'Yol çalışmaları', locationListController.getYolCalismalari),
-        //       locationCard('Akayakıt Istasyonları',
-        //           locationListController.getAkaryakitIstasyonlari),
-        //       locationCard('Halk Ekmek Büfeleri',
-        //           locationListController.getHalkEkmekBufeleri),
-        //       locationCard('IBB Wifi Konumları',
-        //           locationListController.getIBBWifiLocations),
-        //     ],
-        //   ),
-        // ),
         body: GridView.count(
           crossAxisCount: 2,
           children: [

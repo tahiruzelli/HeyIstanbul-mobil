@@ -8,6 +8,7 @@ class MainPage extends StatelessWidget {
   MainController mainController = Get.put(MainController());
   @override
   Widget build(BuildContext context) {
+    mainController.selectedIndex.value = 0;
     return Obx(
       () => Scaffold(
         appBar: myAppBar('Hey Istanbul',

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hey_istanbullum/controllers/profile_controller.dart';
 import 'package:hey_istanbullum/model/comment_model.dart';
 
 class CommentCard extends StatelessWidget {
@@ -17,6 +19,10 @@ class CommentCard extends StatelessWidget {
     };
     return Card(
       child: ListTile(
+        onTap: () {
+          ProfileController profileController = Get.find();
+          profileController.mapDialog(comment);
+        },
         title: isProfile ? Container() : Text(comment.user.nickname),
         subtitle: Text(comment.description),
         trailing: Text(
