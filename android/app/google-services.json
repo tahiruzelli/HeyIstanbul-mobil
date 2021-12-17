@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "12517432542",
+    "project_id": "look-1cb28",
+    "storage_bucket": "look-1cb28.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:12517432542:android:557da4f0b5485c601f764f",
+        "android_client_info": {
+          "package_name": "com.prokaryoTech.hey_istanbullum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "12517432542-oh1qa80krkhofn50ogl9opsh3a68ds5g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcs9saveWlVaG0aS4QHHxE3pMVdMsXf3c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "12517432542-oh1qa80krkhofn50ogl9opsh3a68ds5g.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "12517432542-s16g4r760mdkacoi8mk91fkkt46t4t2b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cbutech.lookapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

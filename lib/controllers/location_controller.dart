@@ -231,17 +231,21 @@ class LocationController extends GetxController {
   }
 
   Future createComment() {
-    f
-        .createComment(_locationId, choosenLocationDetail['title'],
-            commentTextFieldController.text)
-        .then((value) {
-      if (value['success']) {
-        getComments();
-      } else {
-        Get.snackbar('Error', value['error']);
-      }
-    });
-    commentTextFieldController.clear();
+    if (commentTextFieldController.text.length > 5) {
+      f
+          .createComment(_locationId, choosenLocationDetail['title'],
+              commentTextFieldController.text)
+          .then((value) {
+        if (value['success']) {
+          getComments();
+        } else {
+          Get.snackbar('Error', value['error']);
+        }
+      });
+      commentTextFieldController.clear();
+    } else {
+      Get.snackbar('Uyarı', 'Daha uzun bir yorum girmelisiniz.');
+    }
   }
 
   Future getComments() {

@@ -7,7 +7,7 @@
         android:label="Hey İstanbul!"
         android:icon="@mipmap/launcher_icon">
         <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyBk92m0RTzwmRX5pWHIJ8DOvdv6C1zfOQQ"/>
+               android:value="AIzaSyCcs9saveWlVaG0aS4QHHxE3pMVdMsXf3c"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

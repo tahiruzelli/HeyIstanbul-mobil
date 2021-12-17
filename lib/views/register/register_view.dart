@@ -116,8 +116,8 @@ class MyHomePageState extends State<RegisterView> {
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
       child: MyTextFormField(
         controller: _registerController.passwordController,
-        labelText: "Password",
-        hintText: 'Password',
+        labelText: "Şifre",
+        hintText: 'Şifre',
         suffixIcon: IconButton(
           icon: Icon(
             // Based on passwordVisible state choose the icon

@@ -35,7 +35,7 @@ class _LoginView extends State<LoginView> {
     return Column(
       children: [
         _routeRegisterWidget(context),
-        _forgetPassword(context),
+        //   _forgetPassword(context),
       ],
     );
   }
